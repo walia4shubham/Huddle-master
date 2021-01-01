@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+@import "./resStyles";
+
+@mixin displayFlex($direction, $justifyContent) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justifyContent;
+}
+
+$primaryPink: hsl(322, 100%, 66%);
+$neutralVeryPaleCyan: hsl(192, 100%, 96%);
+$neutralVeryDarkCyan: hsl(192, 100%, 9%);
+$GrayishBlue: hsl(208, 11%, 55%);
+
+html {
+  font-family: "Poppins", "Open Sans";
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins";
+  button:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 10px grey;
+  }
+  
+}
+
+header {
+  background-color: $neutralVeryPaleCyan;
+  background-image: url(../images/bg-hero-desktop.svg);
+
+  & nav {
+    @include displayFlex(row, space-between);
+    align-items: center;
+    margin: auto 50px;
+    padding-top: 20px;
+
+    & button {
+      background: white;
+      border-radius: 70px;
+      border: none;
+      box-shadow: 5px 5px 10px $GrayishBlue;
+      color: black;
+      font-weight: 600;
+      padding: 10px 50px;
+    }
+  }
+
+  & .hero {
+    @include displayFlex(row, space-between);
+    margin: auto 50px;
+    align-items: center;
+
+    & h1 {
+      font-size: 50px;
+      text-transform: capitalize;
+      width: 650px;
+      margin: 30px;
+      padding: 3opx;
+    }
+
+    & p {
+      font-family: Open Sans;
+      width: 500px;
+      font-weight: 400;
+    }
+    & button {
+      background-color: $primaryPink;
+      border-radius: 70px;
+      border: none;
+      color: white;
+      margin: 18px 0;
+      padding: 15px 60px;
+      text-transform: capitalize;
+    }
+
+    & .hero-image {
+      & img {
+        width: 700px;
+        margin: 50px auto;
+      }
+    }
+    #secImg {
+      display: none;
+    }
+  }
+}
+
+.content-container {
+  @include displayFlex(column, center);
+  align-items: center;
+
+  & .content-container-items {
+    margin: 50px 0;
+    padding: 60px;
+    border: 2px solid #f5ffd1;
+    @include displayFlex(row, space-around);
+    align-items: center;
+    width: 1500px;
+
+    &:nth-of-type(even) {
+      @include displayFlex(row-reverse, space-around);
+    }
+
+    & .content-info {
+      margin: 50px;
+      h3 {
+        text-transform: capitalize;
+      }
+      p {
+        width: 500px;
+        font-family: Open Sans;
+        color: $GrayishBlue;
+        font-weight: 100;
+      }
+    }
+
+    & .content-image {
+      img {
+        width: 500px;
+      }
+    }
+  }
+}
+
+footer {
+  color: white;
+  margin-top: 150px;
+  position: relative;
+  bottom: 0;
+  @include displayFlex(row, space-evenly);
+  background-color: $neutralVeryDarkCyan;
+
+  a {
+    text-decoration: none;
+  }
+
+  & .getStarted {
+    color: black;
+    border: 2px solid #f5ffd1;
+    background-color: white;
+    width: 800px;
+    padding: 50px;
+    top: -130px;
+    border-radius: 30px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin: auto auto;
+    text-align: center;
+
+    & h1 {
+      text-transform: capitalize;
+    }
+    & button {
+      text-align: center;
+      background-color: $primaryPink;
+      border-radius: 70px;
+      border: none;
+      color: white;
+      padding: 15px 60px;
+      text-transform: capitalize;
+    }
+  }
+
+  & .footer-contents {
+    width: 100%;
+    @include displayFlex(row, space-evenly);
+    align-items: center;
+    padding: 150px 0;
+    list-style-type: none;
+
+    & .footer-contact {
+      width: 500px;
+      @include displayFlex(column, center);
+      align-items: flex-start;
+
+      & p {
+        font-family: "Open Sans";
+      }
+      img {
+        margin-right: 15px;
+      }
+    }
+    & .footer-support {
+      height: 300px;
+      @include displayFlex(row, center);
+      align-items: center;
+
+      .three {
+        li {
+          font-size: 16px;
+          font-family: "Open Sans";
+          margin-bottom: 50px;
+          margin-right: 50px;
+        }
+      }
+    }
+
+    .footer-socials {
+      align-items: flex-start;
+      margin-bottom: 160px;
+
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.me {
+  position: relative;
+  left: -500px;
+  right: 0;
+  bottom: 0;
+  top: 300px;
+  font-size: 16px;
+
+  a {
+    color: $primaryPink;
+  }
+}
